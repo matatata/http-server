@@ -9,5 +9,19 @@ Unnzip the zip-archive http-server-*-dist.zip in target/ and unpack it to a dest
 
 `java -jar http-server-*.jar 8080`
 
-Then visit [http://localhost:8080/index.html](http://localhost:8080/index.html)
+You'll see a tine interactive console:
+
+
+	Will try to listen on port 8080
+	HTTP/1.x Server
+	
+	Commands:
+	quit - gracefully quits the server.
+	help - displays this text.
+	gc - run garbage-collector
+	status - status info
+	?>
+
+
+Then you might want to visit [http://localhost:8080/index.html](http://localhost:8080/index.html) or whatever you put in the htdocs-directory.
 
