@@ -54,7 +54,7 @@ public class Server {
     public void init() {
       try {
         Properties defaults = new Properties();
-        defaults.load(Context.class.getResourceAsStream("server.defaults"));
+        defaults.load(ClassLoader.getSystemClassLoader().getResourceAsStream("server.defaults"));
         properties = new Properties(defaults);
         properties.load(ClassLoader.getSystemClassLoader()
             .getResourceAsStream("server.properties"));
@@ -190,7 +190,6 @@ public class Server {
       try {
 
         System.out.println("HTTP/1.x Server");
-        System.out.println("Matteo Ceruti <ceruti@rbg.informatik.tu-darmstadt.de>");
         System.out.println();
         System.out.println(helptext);
 

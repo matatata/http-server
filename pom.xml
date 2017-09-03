@@ -9,7 +9,7 @@
 
 
 	<properties>
-		<mainclass>de.infomac.server.Server</mainclass>
+		<mainclass>de.infomac.webserver.server.Server</mainclass>
 		<java.version>1.5</java.version>
 		<maven.compiler.source>1.5</maven.compiler.source>
 		<maven.compiler.target>1.5</maven.compiler.target>
@@ -53,7 +53,7 @@
 
 								</manifest>
 								<manifestEntries>
-									<Class-Path>./conf/</Class-Path>
+									<Class-Path>conf/</Class-Path>
 								</manifestEntries>
 							</archive>
 							<!--exclude the properties file from the archive -->

@@ -41,5 +41,11 @@
 				<include>log4j.properties</include>-->
 			</includes>
 		</fileSet>
+		<fileSet>
+			
+			<directory>${project.basedir}/htdocs</directory>
+			<outputDirectory>/htdocs</outputDirectory>
+			
+		</fileSet>
 	</fileSets>
 </assembly>
