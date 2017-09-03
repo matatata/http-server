@@ -1,0 +1,14 @@
+#### Server Settings ####
+server_root=.
+#server_root=htdocs/
+#(the trailing '/' is required in this case)
+
+max_threads=10
+max_connections=20
+
+keep_alive=10
+keep_alive_timeout=10000
+
+
+
+

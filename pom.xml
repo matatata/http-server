@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.infomac</groupId>
+	<artifactId>http-server</artifactId>
+	<packaging>jar</packaging>
+	<version>0.9</version>
+	<name>web-server</name>
+
+
+	<properties>
+		<mainclass>de.infomac.server.Server</mainclass>
+		<java.version>1.5</java.version>
+		<maven.compiler.source>1.5</maven.compiler.source>
+		<maven.compiler.target>1.5</maven.compiler.target>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.8</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>dist</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<classpathPrefix>lib/</classpathPrefix>
+									<mainClass>
+										${mainclass}
+									</mainClass>
+
+								</manifest>
+								<manifestEntries>
+									<Class-Path>./conf/</Class-Path>
+								</manifestEntries>
+							</archive>
+							<!--exclude the properties file from the archive -->
+							<excludes>
+								<exclude>*.properties</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<configuration>
+							<descriptors>
+								<descriptor>${basedir}/assembly/distribution-zip.xml</descriptor>
+							</descriptors>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
+
+</project>
